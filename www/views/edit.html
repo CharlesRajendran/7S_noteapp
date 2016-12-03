@@ -1,0 +1,19 @@
+<ion-view view-title="{{task_title}}">
+    <ion-content>
+        
+        <div class="list card">
+            <div class="item item-input">
+                <input type="text" placeholder="Title" ng-model="note.title" style="font-weight: bolder;" />
+            </div>
+            
+            <div class="item item-input">
+                <textarea rows="5" placeholder="Description" ng-model="note.description" style="resize: none;"></textarea> 
+            </div>
+            
+            <div class="padding">
+                <button class="button button-block button-positive" ng-click="save(note)">Save</button>
+            </div>
+        </div>
+        
+    </ion-content>
+</ion-view>

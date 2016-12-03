@@ -1,0 +1,33 @@
+<!--view-title will be the title for the view -->
+
+<!-- there is ion-view which will be the root element for the partials which contain ion-content -->
+<ion-view view-title="7S Notes"> 
+    <ion-content>   
+        <!--
+        
+            for list and item class there are custom angular directives
+        
+            <div class="list"> === <ion-list>
+            <a class="item"> === <ion-item>
+        --> 
+        
+        <ion-list show-reorder="reordering_status"> 
+            <ion-item href="#/edit/{{task.id}}" class="item-remove-animate item-icon-right" ng-repeat="task in tasks track by task.id">
+                <h2>{{task.title}}</h2>
+                <p style="white-space: normal;">{{task.description}}</p>
+                
+                <i class="icon ion-edit"></i>
+                <ion-reorder-button class="ion-drag" on-reorder="move(task,$fromIndex,$toIndex)"></ion-reorder-button>
+                <!--<ion-option-button> is a slider to remove button -->
+                <ion-option-button class="button button-assertive icon-left ion-trash-b" ng-click="remove(task.id)">Remove</ion-option-button>
+            </ion-item>
+            <!--this is to prevent footer overlapping actual ion-items-->
+            <ion-item></ion-item>
+        </ion-list>        
+    </ion-content>
+            
+    <div class="bar bar-footer bar-stable">
+          <a href="#/create" class="button button-assertive">New Task</a>
+          <button class="button button-calm icon-left ion-shuffle" ng-click="reordering()">Change Order</button>
+    </div>
+</ion-view>
